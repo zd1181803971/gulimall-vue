@@ -1,15 +1,15 @@
 <template>
-  <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+  <el-tree :data="menus" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      data: [],
+      menus: [],
       defaultProps: {
         children: 'children',
-        label: 'label'
+        label: 'name'
       }
     }
   },
@@ -21,8 +21,10 @@ export default {
       this.$http({
         url: this.$http.adornUrl('/product/category/list/tree'),
         method: 'get'
+      //  {}: 将返回的数据中的data属性解构出来
       }).then(({data}) => {
-        console.log(data)
+        console.log(data.data)
+        this.menus = data.data
       })
     }
   },
