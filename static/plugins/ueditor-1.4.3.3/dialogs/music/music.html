@@ -20,13 +20,13 @@
 </div>
 <script type="text/javascript" src="music.js"></script>
 <script type="text/javascript">
-    var music = new Music;
-    dialog.onok = function () {
-        music.exec();
-    };
-    dialog.oncancel = function () {
-        $G('J_preview').innerHTML = "";
-    };
+    var music = new Music()
+dialog.onok = function () {
+      music.exec()
+}
+dialog.oncancel = function () {
+      $G('J_preview').innerHTML = ''
+}
 </script>
 </body>
 </html>
