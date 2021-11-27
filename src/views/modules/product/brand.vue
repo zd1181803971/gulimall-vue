@@ -85,7 +85,7 @@
       <el-table :data="cateRelationTableData" style="width: 100%">
         <el-table-column prop="id" label="#"></el-table-column>
         <el-table-column prop="brandName" label="品牌名"></el-table-column>
-        <el-table-column prop="catelogName" label="分类名"></el-table-column>
+        <el-table-column prop="catalogName" label="分类名"></el-table-column>
         <el-table-column fixed="right" header-align="center" align="center" label="操作">
           <template slot-scope="scope">
             <el-button
@@ -136,12 +136,12 @@ export default {
   },
   methods: {
     addCatelogSelect() {
-      //{"brandId":1,"catelogId":2}
+      //{"brandId":1,"catalogId":2}
       this.popCatelogSelectVisible =false;
       this.$http({
         url: this.$http.adornUrl("/product/categorybrandrelation/save"),
         method: "post",
-        data: this.$http.adornData({brandId:this.brandId,catelogId:this.catelogPath[this.catelogPath.length-1]}, false)
+        data: this.$http.adornData({brandId:this.brandId,catalogId:this.catelogPath[this.catelogPath.length-1]}, false)
       }).then(({ data }) => {
         this.getCateRelation();
       });

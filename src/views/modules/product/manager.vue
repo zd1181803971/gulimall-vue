@@ -101,7 +101,7 @@ export default {
       dataForm: {
         key: "",
         brandId: 0,
-        catelogId: 0,
+        catalogId: 0,
         price: {
           min: 0,
           max: 0
@@ -149,7 +149,7 @@ export default {
           page: this.pageIndex,
           limit: this.pageSize,
           key: this.dataForm.key,
-          catelogId: this.dataForm.catelogId,
+          catalogId: this.dataForm.catalogId,
           brandId: this.dataForm.brandId,
           min: this.dataForm.price.min,
           max: this.dataForm.price.max
@@ -183,7 +183,7 @@ export default {
   },
   mounted() {
     this.catPathSub = PubSub.subscribe("catPath", (msg, val) => {
-      this.dataForm.catelogId = val[val.length - 1];
+      this.dataForm.catalogId = val[val.length - 1];
     });
     this.brandIdSub = PubSub.subscribe("brandId", (msg, val) => {
       this.dataForm.brandId = val;
